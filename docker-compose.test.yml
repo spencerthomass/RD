@@ -1,0 +1,13 @@
+# Test container for the new web console, to run NEXT TO your existing hbbs/hbbr.
+# Uses a COPY of the database (see docs/DOCKER.md) and its own port, so nothing existing is touched.
+services:
+  deskconsole:
+    container_name: deskconsole
+    build: .
+    ports:
+      - "21120:21114"
+    volumes:
+      - /mnt/user/appdata/sctgdesk-ui-test:/data
+    command: ["--address", "0.0.0.0", "--port", "21114", "--log_level", "normal",
+              "--secret_key", "CHANGE_ME_TO_A_LONG_RANDOM_BASE64_STRING"]
+    restart: unless-stopped

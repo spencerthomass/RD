@@ -45,7 +45,7 @@
         <router-view />
       </main>
       <footer class="px-6 pb-6 text-center text-xs text-slate-500">
-        Server v{{ versions.serverVersion }} · latest client v{{ versions.clientVersion }} · derived from
+        <template v-if="versions.serverVersion">Server v{{ versions.serverVersion }} · latest client v{{ versions.clientVersion }} · </template>derived from
         <a class="underline" href="https://github.com/sctg-development/sctgdesk-api-server">sctgdesk-api-server</a> (AGPL-3.0)
       </footer>
     </div>
